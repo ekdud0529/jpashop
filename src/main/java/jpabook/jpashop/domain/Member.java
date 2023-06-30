@@ -7,6 +7,8 @@ import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
 
+import static javax.persistence.FetchType.LAZY;
+
 @Entity
 @Getter @Setter
 public class Member {
@@ -20,6 +22,6 @@ public class Member {
     @Embedded
     private Address address;
 
-    @OneToMany(mappedBy = "member") // order 테이블에 있는, member 필드 위에서 매핑 되었다는 의미다.
+    @OneToMany(mappedBy = "member", fetch = LAZY) // order 테이블에 있는, member 필드 위에서 매핑 되었다는 의미다.
     private List<Order> orders  = new ArrayList<>();
 }
