@@ -17,14 +17,17 @@ public class ItemService {
 
     @Transactional
     public void saveItem(Item item) {
+
         itemRepository.save(item);
     }
 
     public List<Item> findItem() {
+
         return itemRepository.findAll();
     }
 
     public Item findOne(Long itemId) {
+
         return itemRepository.findOne(itemId);
     }
 }
