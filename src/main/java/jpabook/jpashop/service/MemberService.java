@@ -18,6 +18,7 @@ public class MemberService {
     private final MemberRepository memberRepository;
 
     /** 회원 가입 **/
+    @Transactional
     public Long join(Member member) {
         validateDuplicateMember(member); // 중복 회원 검증
         memberRepository.save(member);
